@@ -1,10 +1,26 @@
 {
   "name": "pharos-agent-incident-response",
   "version": "0.1.0",
-  "private": true,
+  "description": "CLI for Pharos agent incident response workflows.",
+  "license": "MIT",
   "type": "module",
   "bin": {
-    "pharos-incident": "./bin/cli.js"
+    "pharos-incident": "bin/cli.js"
+  },
+  "files": [
+    "bin/cli.js",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nienie22/pharos-agent-incident-response.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Nienie22/pharos-agent-incident-response/issues"
+  },
+  "homepage": "https://github.com/Nienie22/pharos-agent-incident-response#readme",
+  "publishConfig": {
+    "access": "public"
   },
   "engines": {
     "node": ">=20"
@@ -27,6 +43,9 @@
     "deploy:atlantic": "node scripts/deploy-atlantic.mjs",
     "acceptance:atlantic": "node scripts/atlantic-acceptance.mjs",
     "build:api-vercel": "node scripts/build-api-vercel.mjs"
+  },
+  "dependencies": {
+    "@pharos-incident/sdk": "^0.1.0"
   },
   "devDependencies": {
     "esbuild": "^0.28.1",

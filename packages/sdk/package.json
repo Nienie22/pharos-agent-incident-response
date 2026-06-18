@@ -1,16 +1,40 @@
 {
   "name": "@pharos-incident/sdk",
   "version": "0.1.0",
-  "private": true,
+  "description": "Typed TypeScript SDK for the Pharos agent incident response API.",
+  "license": "MIT",
   "type": "module",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nienie22/pharos-agent-incident-response.git",
+    "directory": "packages/sdk"
+  },
+  "bugs": {
+    "url": "https://github.com/Nienie22/pharos-agent-incident-response/issues"
+  },
+  "homepage": "https://github.com/Nienie22/pharos-agent-incident-response/tree/main/packages/sdk#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "test": "vitest run",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@pharos-incident/policy": "*"
+    "@pharos-incident/policy": "^0.1.0"
   },
   "devDependencies": {
     "@types/node": "^20.19.43",

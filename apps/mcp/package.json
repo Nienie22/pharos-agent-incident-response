@@ -1,16 +1,40 @@
 {
   "name": "@pharos-incident/mcp",
   "version": "0.1.0",
-  "private": true,
+  "description": "MCP tool surface for Pharos agent incident response.",
+  "license": "MIT",
   "type": "module",
-  "main": "dist/index.js",
+  "main": "dist/server.js",
+  "types": "dist/server.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/server.d.ts",
+      "import": "./dist/server.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nienie22/pharos-agent-incident-response.git",
+    "directory": "apps/mcp"
+  },
+  "bugs": {
+    "url": "https://github.com/Nienie22/pharos-agent-incident-response/issues"
+  },
+  "homepage": "https://github.com/Nienie22/pharos-agent-incident-response/tree/main/apps/mcp#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "test": "vitest run",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@pharos-incident/sdk": "*"
+    "@pharos-incident/sdk": "^0.1.0"
   },
   "devDependencies": {
     "@types/node": "^20.19.43",

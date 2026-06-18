@@ -1,0 +1,28 @@
+﻿# Alibaba Function Compute service for the watcher.
+component: fc
+name: pharos-incident-watcher
+provider:
+  name: aliyun
+  credentials: ${env:ALIBABA_CREDENTIALS_JSON}
+props:
+  region: ${env:ALIBABA_REGION:ap-southeast-1}
+  service:
+    name: pharos-incident-watcher
+    description: Pharos Agent Incident Response - signal watcher.
+    internetAccess: true
+  function:
+    name: watcher
+    runtime: custom.debian10
+    handler: not-used
+    memorySize: 512
+    timeout: 60
+    environmentVariables:
+      PHAROS_RPC_URL: ${env:PHAROS_RPC_URL}
+      GOPLUS_API_KEY: ${env:GOPLUS_API_KEY}
+      LIVE_INTEGRATIONS: "1"
+  triggers:
+    - name: timer
+      type: timer
+      config:
+        cronExpression: "0 */5 * * * *"
+        enable: true

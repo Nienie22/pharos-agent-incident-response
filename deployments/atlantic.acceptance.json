@@ -1,0 +1,171 @@
+{
+  "network": "pharos-atlantic",
+  "chainId": 688689,
+  "explorer": "https://atlantic.pharosscan.xyz",
+  "rpc": "https://atlantic.dplabs-internal.com",
+  "isLocal": false,
+  "ranAt": "2026-06-15T09:28:17.580Z",
+  "deployer": "0x0365b0a13240567f94D30AcD508296FFBE97989D",
+  "roles": {
+    "reporter": "0x9A34cCe75AB21a76f8Abf455C436146F6Ac4821d",
+    "approver1": "0xA98D4506B63518491e1B2D9A7d2fF6C0fE10bF71",
+    "approver2": "0x3B379b41aAAdE771036CF63652B9EBC58cF3b024",
+    "responder": "0x3DAe47dA93e715756582fa125daCcb785D095Ddf"
+  },
+  "contracts": {
+    "IncidentRegistry": "0x0d93b5cD4356652ef6b4776949A86979e9c00cdE",
+    "EmergencyPolicyController": "0xA2F7fEED38f72eF63ACa52696C1620a3e2EecE2d",
+    "AgentRegistry": "0x2d1B360dec14e63846735939E793bcb1655Aa93b"
+  },
+  "ids": {
+    "H_REPORTER": "0x3204c940063673962b481a0395619b3dbbd137589c419e993978c1c71bcf68ec",
+    "H_APPROVER": "0x408a36151f841709116a4e8aca4e0202874f7f54687dcb863b1ea4672dc9d8cf",
+    "H_EXECUTOR": "0xd8aa0f3194971a2a116679f7c2090f6939c8d4e01a2a8d7e41d55e5351469e63",
+    "incidentId": "0xcdbd8dc5673f1c819f9b67e0e4e2bf72024579943748e41a931ac82841d91def",
+    "planHash": "0xda220b59a909d83d74bdf09ff396898b18db4cc60f07962229daf34d66606136",
+    "pausePlanHash": "0x84997f65d426afb011bf1e7180084dec7e625bd76987df1a62508431a53978ec",
+    "closureHash": "0xce685d12e6a77302398cc6e885be687a942ac1c08bfd7ca7a9759270a2375d38"
+  },
+  "bytecode": {
+    "IncidentRegistry": {
+      "label": "IncidentRegistry",
+      "addr": "0x0d93b5cD4356652ef6b4776949A86979e9c00cdE",
+      "localHash": "0x23ab365b9e84d1ab662d18e408a0933046229a21949dca7191b655c6ce90250e",
+      "onchainHash": "0x23ab365b9e84d1ab662d18e408a0933046229a21949dca7191b655c6ce90250e",
+      "ok": true
+    },
+    "EmergencyPolicyController": {
+      "label": "EmergencyPolicyController",
+      "addr": "0xA2F7fEED38f72eF63ACa52696C1620a3e2EecE2d",
+      "localHash": "0x2d6b1069f598be7b44792cf660ace8c95d0434dc7a2628e8de905b744e8dee9a",
+      "onchainHash": "0x2d6b1069f598be7b44792cf660ace8c95d0434dc7a2628e8de905b744e8dee9a",
+      "ok": true
+    }
+  },
+  "roles_on_chain": {
+    "reporter_is_REPORTER_on_Registry": true,
+    "responder_is_EXECUTOR_on_Registry": true,
+    "approver1_is_APPROVER_on_Controller": true,
+    "approver2_is_APPROVER_on_Controller": true,
+    "responder_is_EXECUTOR_on_Controller": true
+  },
+  "relationships": {
+    "controller_agent_registry": "0x2d1B360dec14e63846735939E793bcb1655Aa93b",
+    "controller_incident_registry": "0x0d93b5cD4356652ef6b4776949A86979e9c00cdE",
+    "controller_agent_registry_matches": true,
+    "controller_incident_registry_matches": true
+  },
+  "balances": {
+    "deployer": "15586006885502806",
+    "controller": "0"
+  },
+  "scenarios": [
+    {
+      "id": "S1",
+      "name": "Malicious approval detection",
+      "description": "Watcher observes GoPlus-flagged approval; incident registered on chain.",
+      "ok": true,
+      "txHash": "0x56eed9d111add0c08f8a63267b1433d6d624aeec6da512afd4732d6cdd84bf5d",
+      "blockNumber": 24242493,
+      "explorerLink": "https://atlantic.pharosscan.xyz/tx/0x56eed9d111add0c08f8a63267b1433d6d624aeec6da512afd4732d6cdd84bf5d"
+    },
+    {
+      "id": "S2",
+      "name": "Approved revoke (SNAPSHOT, CRITICAL)",
+      "description": "Plan with two CRITICAL approvals recorded on chain.",
+      "ok": true,
+      "txHashes": [
+        "0x878bfaee80ae4f42d25574a29b1e6505b34c9ffec5abd167062260a982dc4e21",
+        "0xf5606c82ddea025edfa5eca655a72a4a4eb19543598d82bda2963d576638605f",
+        "0xa6a73c8f4e40bfaf10ebc482b9686ff98355db93f465ef6beafe3245c3af8c32"
+      ],
+      "blockNumbers": [
+        24242497,
+        24242500,
+        24242505
+      ],
+      "explorerLinks": [
+        "https://atlantic.pharosscan.xyz/tx/0x878bfaee80ae4f42d25574a29b1e6505b34c9ffec5abd167062260a982dc4e21",
+        "https://atlantic.pharosscan.xyz/tx/0xf5606c82ddea025edfa5eca655a72a4a4eb19543598d82bda2963d576638605f",
+        "https://atlantic.pharosscan.xyz/tx/0xa6a73c8f4e40bfaf10ebc482b9686ff98355db93f465ef6beafe3245c3af8c32"
+      ]
+    },
+    {
+      "id": "S3",
+      "name": "Agent pause",
+      "description": "PAUSE_AGENT plan approved and executed; agent registry flips paused flag.",
+      "ok": true,
+      "txHashes": [
+        "0x777771edc189018695b635089bf092e90af02e6d37f8782f11d2eb4a66de2a28",
+        "0x68635491b38bf60f45eb227dda8a666b2d3c783f9f4826c276a8e965b664a93b",
+        "0x45c6c06d8897da9cc0738d437778676d4fcd171ecb5d8d15f48a551eb1d02502"
+      ],
+      "blockNumbers": [
+        24242510,
+        24242515,
+        24242520
+      ],
+      "explorerLinks": [
+        "https://atlantic.pharosscan.xyz/tx/0x777771edc189018695b635089bf092e90af02e6d37f8782f11d2eb4a66de2a28",
+        "https://atlantic.pharosscan.xyz/tx/0x68635491b38bf60f45eb227dda8a666b2d3c783f9f4826c276a8e965b664a93b",
+        "https://atlantic.pharosscan.xyz/tx/0x45c6c06d8897da9cc0738d437778676d4fcd171ecb5d8d15f48a551eb1d02502"
+      ]
+    },
+    {
+      "id": "S4",
+      "name": "Rejected unauthorized action",
+      "description": "Non-EXECUTOR caller attempts execute() and is rejected by AccessControl.",
+      "ok": true,
+      "reverted": true,
+      "notes": "reverted as expected"
+    },
+    {
+      "id": "S5",
+      "name": "Verified closure",
+      "description": "Closure receipt anchored on IncidentRegistry.",
+      "ok": true,
+      "txHashes": [
+        "0x65c688bd3f139a3396bc46cd9996d950d40822653bd0557250a79ef34217a2d6",
+        "0x2bcb475f1b342af0d0fa3653ef1e5ac27cf557cc1e2c2e4b406b5c574755959d"
+      ],
+      "blockNumbers": [
+        24242528,
+        24242532
+      ],
+      "explorerLinks": [
+        "https://atlantic.pharosscan.xyz/tx/0x65c688bd3f139a3396bc46cd9996d950d40822653bd0557250a79ef34217a2d6",
+        "https://atlantic.pharosscan.xyz/tx/0x2bcb475f1b342af0d0fa3653ef1e5ac27cf557cc1e2c2e4b406b5c574755959d"
+      ],
+      "closureHash": "0xce685d12e6a77302398cc6e885be687a942ac1c08bfd7ca7a9759270a2375d38"
+    }
+  ],
+  "setup": {
+    "role_grants": {
+      "reporter": {
+        "txHash": "0x5137e09c0957b78e448d871808143f9de0d1619cffa4d267951f40553c42045a",
+        "blockNumber": 24242471,
+        "status": "0x1"
+      },
+      "executor_registry": {
+        "txHash": "0xfa3256a407ea4893878ca576a89953fa32f37e6e9c192c668985ef4483b77fe0",
+        "blockNumber": 24242475,
+        "status": "0x1"
+      },
+      "approver1": {
+        "txHash": "0x4d2a4d4afb148411dfa12c9211b08844c7f31a49b7277f42655cf81f896198b7",
+        "blockNumber": 24242480,
+        "status": "0x1"
+      },
+      "approver2": {
+        "txHash": "0xba3f13db24f06bd2a7ddf16bb51c1c0a8dfe24ea80797fbd8967f7932c44c63e",
+        "blockNumber": 24242484,
+        "status": "0x1"
+      },
+      "executor_controller": {
+        "txHash": "0x9a7a9d74fda50f8e04c546c655236e2808be385ebf91775032b9ca2c009b5120",
+        "blockNumber": 24242488,
+        "status": "0x1"
+      }
+    }
+  }
+}

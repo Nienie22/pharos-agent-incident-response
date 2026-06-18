@@ -1,0 +1,22 @@
+﻿# Alibaba Function Compute service for the responder.
+component: fc
+name: pharos-incident-responder
+provider:
+  name: aliyun
+  credentials: ${env:ALIBABA_CREDENTIALS_JSON}
+props:
+  region: ${env:ALIBABA_REGION:ap-southeast-1}
+  service:
+    name: pharos-incident-responder
+    description: Pharos Agent Incident Response - approved execution worker.
+    internetAccess: true
+  function:
+    name: responder
+    runtime: custom.debian10
+    handler: not-used
+    memorySize: 1024
+    timeout: 120
+    environmentVariables:
+      PHAROS_RPC_URL: ${env:PHAROS_RPC_URL}
+      PHAROS_RESPONDER_PRIVATE_KEY: ${env:PHAROS_RESPONDER_PRIVATE_KEY}
+      DATABASE_URL: ${env:DATABASE_URL}

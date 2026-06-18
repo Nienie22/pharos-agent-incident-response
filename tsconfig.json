@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "lib": ["DOM", "ES2022"],
+    "baseUrl": ".",
+    "paths": {
+      "@pharos-incident/policy": ["packages/policy/src/index.ts"],
+      "@pharos-incident/policy/*": ["packages/policy/src/*"],
+      "@pharos-incident/sdk": ["packages/sdk/src/index.ts"],
+      "@pharos-incident/sdk/*": ["packages/sdk/src/*"],
+      "@pharos-incident/integrations": ["packages/integrations/src/index.ts"],
+      "@pharos-incident/integrations/*": ["packages/integrations/src/*"],
+      "@pharos-incident/watcher": ["services/watcher/src/index.ts"],
+      "@pharos-incident/watcher/*": ["services/watcher/src/*"],
+      "@pharos-incident/responder": ["services/responder/src/index.ts"],
+      "@pharos-incident/responder/*": ["services/responder/src/*"]
+    }
+  },
+  "include": [
+    "packages/*/src/**/*",
+    "services/*/src/**/*",
+    "apps/*/src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/dist",
+    "**/test",
+    "**/node_modules",
+    "apps/web/src/main.tsx"
+  ]
+}

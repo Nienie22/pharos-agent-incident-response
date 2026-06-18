@@ -1,0 +1,9 @@
+{
+  "name": "@pharos-incident/contracts",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "node run-forge.mjs build",
+    "test": "node run-forge.mjs test"
+  }
+}

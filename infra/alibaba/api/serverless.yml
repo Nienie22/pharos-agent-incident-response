@@ -1,0 +1,26 @@
+﻿# Alibaba Function Compute service for the API.
+component: fc
+name: pharos-incident-api
+provider:
+  name: aliyun
+  credentials: ${env:ALIBABA_CREDENTIALS_JSON}
+props:
+  region: ${env:ALIBABA_REGION:ap-southeast-1}
+  service:
+    name: pharos-incident-api
+    description: Pharos Agent Incident Response - read-only API.
+    internetAccess: true
+  function:
+    name: api
+    runtime: custom.debian10
+    handler: not-used
+    memorySize: 512
+    timeout: 30
+    environmentVariables:
+      DATABASE_URL: ${env:DATABASE_URL}
+  triggers:
+    - name: http
+      type: http
+      config:
+        authType: anonymous
+        methods: [GET, POST]

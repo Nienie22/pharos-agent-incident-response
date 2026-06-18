@@ -1,0 +1,31 @@
+node_modules
+dist
+.env
+.env.*
+!.env.example
+deployments/private
+deployments/*.private.json
+.cache
+coverage
+forge-cache
+broadcast
+
+# Local run artifacts
+artifacts/
+video/
+docs/superpowers/
+*.log
+*.png
+*.jpg
+*.jpeg
+*.webm
+*.mp4
+*.wav
+*.mp3
+
+# Generated builds and vendored dependencies
+out/
+cache/
+packages/contracts/lib/
+deployments/api-vercel/
+deployments/web-vercel/

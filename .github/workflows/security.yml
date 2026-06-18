@@ -1,0 +1,39 @@
+﻿name: security
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  isolation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: node scripts/isolation-check.mjs
+      - run: node scripts/secret-scan.mjs
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npm run typecheck --workspaces --if-present
+      - run: npm test --workspaces --if-present
+  certik:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: CertiK Skill Scanner
+        env:
+          CERTIK_API_KEY: ${{ secrets.CERTIK_API_KEY }}
+        run: |
+          if [ -z "$CERTIK_API_KEY" ]; then
+            echo "::warning::CERTIK_API_KEY not set; skipping live scan"
+            exit 0
+          fi
+          node scripts/certik-scan.mjs

@@ -1,0 +1,35 @@
+{
+  "name": "pharos-agent-incident-response",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "pharos-incident": "./bin/cli.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "workspaces": [
+    "apps/*",
+    "services/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run test --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "incident": "node bin/cli.js",
+    "contracts:build": "node scripts/run-forge.mjs build",
+    "contracts:test": "node scripts/run-forge.mjs test",
+    "isolation-check": "node scripts/isolation-check.mjs",
+    "secret-scan": "node scripts/secret-scan.mjs",
+    "deploy:atlantic": "node scripts/deploy-atlantic.mjs",
+    "acceptance:atlantic": "node scripts/atlantic-acceptance.mjs",
+    "build:api-vercel": "node scripts/build-api-vercel.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.1",
+    "tsx": "^4.22.4"
+  }
+}

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Pharos Split Beacon</title>
+  <desc id="desc">An asymmetric split red beacon whose light braces protect a geometric lighthouse shaped from negative space.</desc>
+  <path fill="#141419" d="M8 4h48l4 4v48l-4 4H8l-4-4V8z"/>
+  <path fill="#ff3a2a" d="M5 22 27 8v8L12 26v12l15 10v8L5 42z"/>
+  <path fill="#ff3a2a" d="M59 15 38 9v8l13 9v11L38 47v9l21-10z"/>
+  <path fill="#f7f7f2" fill-rule="evenodd" d="M27 17h10l5 6v9l-5 5h-3v14h5v5H23v-5h5V37h-5V23zm7 6v9h2l2-2v-5l-2-2z"/>
+  <path fill="#ff3a2a" d="M23 40h19v4H23zm2 7h15v4H25z"/>
+</svg>

@@ -1,0 +1,65 @@
+{
+  "network": "pharos-atlantic",
+  "chainId": 688689,
+  "rpc": "https://atlantic.dplabs-internal.com",
+  "explorer": "https://atlantic.pharosscan.xyz",
+  "deployedAt": "2026-06-15T09:23:57.395Z",
+  "deployer": "0x0365b0a13240567f94D30AcD508296FFBE97989D",
+  "roles": {
+    "reporter": "0x9A34cCe75AB21a76f8Abf455C436146F6Ac4821d",
+    "approver": "0xA98D4506B63518491e1B2D9A7d2fF6C0fE10bF71",
+    "approver2": "0x3B379b41aAAdE771036CF63652B9EBC58cF3b024",
+    "responder": "0x3DAe47dA93e715756582fa125daCcb785D095Ddf"
+  },
+  "contracts": {
+    "IncidentRegistry": "0x0d93b5cD4356652ef6b4776949A86979e9c00cdE",
+    "EmergencyPolicyController": "0xA2F7fEED38f72eF63ACa52696C1620a3e2EecE2d",
+    "AgentRegistry": "0x2d1B360dec14e63846735939E793bcb1655Aa93b"
+  },
+  "deployment_transactions": [
+    {
+      "contract": "MockAgentRegistry",
+      "txHash": "0x795a7c3df24a58d96dcabc81932565e770c7768f125f323ac65cd184e8acc1c0",
+      "blockNumber": 24242435,
+      "address": "0x2d1b360dec14e63846735939e793bcb1655aa93b",
+      "status": "0x1"
+    },
+    {
+      "contract": "IncidentRegistry",
+      "txHash": "0x3c966a383d89024d8417f8489a01d015145a01439fa62ce0443460cf5458030a",
+      "blockNumber": 24242435,
+      "address": "0x0d93b5cd4356652ef6b4776949a86979e9c00cde",
+      "status": "0x1"
+    },
+    {
+      "contract": "EmergencyPolicyController",
+      "txHash": "0xf746333ada6505e1a70b8aa1cdd38d690ff55cd934db0a994c1361893a754ff8",
+      "blockNumber": 24242435,
+      "address": "0xa2f7feed38f72ef63aca52696c1620a3e2eece2d",
+      "status": "0x1"
+    }
+  ],
+  "ranAt": "2026-06-15T09:28:17.580Z",
+  "scenarios": [
+    {
+      "id": "S1",
+      "ok": true
+    },
+    {
+      "id": "S2",
+      "ok": true
+    },
+    {
+      "id": "S3",
+      "ok": true
+    },
+    {
+      "id": "S4",
+      "ok": true
+    },
+    {
+      "id": "S5",
+      "ok": true
+    }
+  ]
+}
